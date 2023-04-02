@@ -2,6 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import { Icon } from "leaflet";
+import MarkerClusterGroup from 'react-leaflet-cluster';
 
 
 function App() {
@@ -16,28 +17,31 @@ function App() {
   })
 
   return (
+
     <div className="App">
       <header className="App-header">
-      <MapContainer center={position} zoom={18} scrollWheelZoom={false}>
+      <MapContainer center={position} zoom={16} scrollWheelZoom={true}>
     <TileLayer
       attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
       url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
     />
-    <Marker position={roth} icon = {customIcon}>
-      <Popup>
-        A pretty CSS3 popup. <br /> Easily customizable.
-      </Popup>
-    </Marker>
-    <Marker position={zeppos} icon = {customIcon}>
-      <Popup>
-        A pretty CSS3 popup. <br /> Easily customizable.
-      </Popup>
-    </Marker>
-    <Marker position={rand} icon = {customIcon}>
-      <Popup maxWidth="10000" maxHeight="10000" >
-        A pretty CSS3 popup. <br /> Easily customizable.
-      </Popup>
-    </Marker>
+    <MarkerClusterGroup>
+      <Marker position={roth} icon = {customIcon}>
+        <Popup>
+          A pretty CSS3 popup. <br /> Easily customizable.
+        </Popup>
+      </Marker>
+      <Marker position={zeppos} icon = {customIcon}>
+        <Popup>
+          A pretty CSS3 popup. <br /> Easily customizable.
+        </Popup>
+      </Marker>
+      <Marker position={rand} icon = {customIcon}>
+        <Popup maxWidth="10000" maxHeight="10000" >
+          A pretty CSS3 popup. <br /> Easily customizable.
+        </Popup>
+      </Marker>
+    </MarkerClusterGroup>
   </MapContainer>
       </header>
     </div>
