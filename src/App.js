@@ -10,6 +10,8 @@ function App() {
   const roth = [36.14760961442212, -86.80677877652803]
   const zeppos = [36.146688025712265, -86.8078919312855]
   const rand = [36.146217154062526, -86.80308581779046]
+  const accessToken = 'RY9Mmlvez3uny0hKkGGHLz5cPGRPZ4EvLnObDC1CNwInyal3imyBvlCErDE8otLH'
+  
 
   const customIcon = new Icon({
     iconUrl: require("./img/dining-icon.png"),
@@ -21,11 +23,15 @@ function App() {
     <div className="App">
       <header className="App-header">
       <MapContainer center={position} zoom={16} scrollWheelZoom={true}>
-    <TileLayer
+    {/* <TileLayer
       attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
       url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+    /> */}
+    <TileLayer
+    attribution='<a href="http://jawg.io" title="Tiles Courtesy of Jawg Maps" target="_blank">&copy; <b>Jawg</b>Maps</a> &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    url='https://{s}.tile.jawg.io/jawg-dark/{z}/{x}/{y}{r}.png?access-token=RY9Mmlvez3uny0hKkGGHLz5cPGRPZ4EvLnObDC1CNwInyal3imyBvlCErDE8otLH'
     />
-    <MarkerClusterGroup>
+    
       <Marker position={roth} icon = {customIcon}>
         <Popup>
           A pretty CSS3 popup. <br /> Easily customizable.
@@ -41,7 +47,6 @@ function App() {
           A pretty CSS3 popup. <br /> Easily customizable.
         </Popup>
       </Marker>
-    </MarkerClusterGroup>
   </MapContainer>
       </header>
     </div>
