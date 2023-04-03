@@ -12,9 +12,7 @@ function VandyMap(props) {
   const rec = [36.14126162203478, -86.80896793107104]
   const alumniGym = [36.14808480396374, -86.80337703137474]
   const central = [36.14593570087756, -86.80027493107089]
-  const accessToken = 'RY9Mmlvez3uny0hKkGGHLz5cPGRPZ4EvLnObDC1CNwInyal3imyBvlCErDE8otLH'
   
-
   const diningIcon = new Icon({
     iconUrl: require("../img/dining-icon.png"),
     iconSize: [38,38]
@@ -35,7 +33,9 @@ function VandyMap(props) {
     <div className="App">
       <header className="App-header">
       <MapContainer center={position} zoom={16} scrollWheelZoom={true}>
-    {/* <TileLayer
+    {/* 
+    Original map object:
+    <TileLayer
       attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
       url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
     /> */}
@@ -43,7 +43,7 @@ function VandyMap(props) {
     attribution='<a href="http://jawg.io" title="Tiles Courtesy of Jawg Maps" target="_blank">&copy; <b>Jawg</b>Maps</a> &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
     url='https://{s}.tile.jawg.io/jawg-dark/{z}/{x}/{y}{r}.png?access-token=RY9Mmlvez3uny0hKkGGHLz5cPGRPZ4EvLnObDC1CNwInyal3imyBvlCErDE8otLH'
     />
-    
+    <MarkerClusterGroup>
       <Marker position={roth} icon = {diningIcon}>
         <MyPopup location="Roth"/>
       </Marker>
@@ -65,6 +65,7 @@ function VandyMap(props) {
       <Marker position={central} icon={libraryIcon}>
         <MyPopup location="Central Library" />
       </Marker>
+      </MarkerClusterGroup>
   </MapContainer>
       </header>
     </div>
