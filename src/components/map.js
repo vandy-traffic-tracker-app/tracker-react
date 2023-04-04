@@ -45,25 +45,39 @@ function VandyMap(props) {
     />
     <Sidebar/>
     <MarkerClusterGroup>
-      <Marker position={roth} icon = {diningIcon}>
+      <Marker position={roth} icon = {diningIcon} eventHandlers={{
+    mouseover: (event) => event.target.openPopup(),
+  }}>
         <MyPopup location="Roth"/>
       </Marker>
-      <Marker position={zeppos} icon = {diningIcon}>
+      <Marker position={zeppos} icon = {diningIcon} eventHandlers={{
+    mouseover: (event) => event.target.openPopup(), 
+  }}>
         <MyPopup location="Zeppos"/>
       </Marker>
-      <Marker position={rand} icon = {diningIcon}>
+      <Marker position={rand} icon = {diningIcon} eventHandlers={{
+    mouseover: (event) => event.target.openPopup(),
+  }}>
         <MyPopup location="Rand"/>
       </Marker>
-      <Marker position={ebi} icon={diningIcon}>
+      <Marker position={ebi} icon={diningIcon} eventHandlers={{
+    mouseover: (event) => event.target.openPopup(),
+  }}>
         <MyPopup location="EBI" />
       </Marker>
-      <Marker position={rec} icon={gymIcon}>
+      <Marker position={rec} icon={gymIcon} eventHandlers={{
+    mouseover: (event) => event.target.openPopup(),
+  }}>
         <MyPopup location="The Rec"/>
       </Marker>
-      <Marker position={alumniGym} icon={gymIcon}>
+      <Marker position={alumniGym} icon={gymIcon} eventHandlers={{
+    mouseover: (event) => event.target.openPopup(),
+  }}>
         <MyPopup location="Alumni Gym"/>
       </Marker>
-      <Marker position={central} icon={libraryIcon}>
+      <Marker position={central} icon={libraryIcon} eventHandlers={{
+    mouseover: (event) => event.target.openPopup(),
+  }}>
         <MyPopup location="Central Library" />
       </Marker>
       </MarkerClusterGroup>

@@ -6,9 +6,15 @@ import VandyMap from './components/map';
 import mySidebar from './components/sidebar';
 
 
+
 function App() {
   return (
-      <VandyMap />
+    <div>
+    <header> 
+      VandyTracker
+    </header>
+    <VandyMap/>
+      </div>
   )
 }
 

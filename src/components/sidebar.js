@@ -1,17 +1,22 @@
 import { useMap } from "react-leaflet";
 import { Fragment } from "react";
+import { Icon } from "leaflet";
 import { useV2Sidebar} from "react-leaflet-v2-sidebar";
 import './sidebar.css';
 
 function Sidebar(prop) {
     const map = useMap();
+    // const homeIcon = new Icon({
+    //     iconUrl: require("../img/home-icon.png"),
+    //     iconSize: [38,38]
+    //   })
 
   const panels = [
     {
       id: "Home",
-      tab: '<i style="font-size: large" class="fa fa-github"></i> Home',
-      pane: "Github Tab Content",
-      title: "Github Info",
+      tab: 'Home',
+      pane: "Welcome to VandyTracker",
+      title: "About VandyTracker",
       position: "top",
     },
     {
