@@ -2,6 +2,7 @@ import { MapContainer, TileLayer, Marker } from 'react-leaflet';
 import { Icon } from "leaflet";
 import MarkerClusterGroup from 'react-leaflet-cluster';
 import MyPopup from './popup';
+import Sidebar from './sidebar';
 
 function VandyMap(props) {
   const position = [36.14487659335152, -86.80265511885861]
@@ -29,7 +30,6 @@ function VandyMap(props) {
   })
 
   return (
-
     <div className="App">
       <header className="App-header">
       <MapContainer center={position} zoom={16} scrollWheelZoom={true}>
@@ -43,26 +43,41 @@ function VandyMap(props) {
     attribution='<a href="http://jawg.io" title="Tiles Courtesy of Jawg Maps" target="_blank">&copy; <b>Jawg</b>Maps</a> &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
     url='https://{s}.tile.jawg.io/jawg-dark/{z}/{x}/{y}{r}.png?access-token=RY9Mmlvez3uny0hKkGGHLz5cPGRPZ4EvLnObDC1CNwInyal3imyBvlCErDE8otLH'
     />
+    <Sidebar/>
     <MarkerClusterGroup>
-      <Marker position={roth} icon = {diningIcon}>
+      <Marker position={roth} icon = {diningIcon} eventHandlers={{
+    mouseover: (event) => event.target.openPopup(),
+  }}>
         <MyPopup location="Roth"/>
       </Marker>
-      <Marker position={zeppos} icon = {diningIcon}>
+      <Marker position={zeppos} icon = {diningIcon} eventHandlers={{
+    mouseover: (event) => event.target.openPopup(), 
+  }}>
         <MyPopup location="Zeppos"/>
       </Marker>
-      <Marker position={rand} icon = {diningIcon}>
+      <Marker position={rand} icon = {diningIcon} eventHandlers={{
+    mouseover: (event) => event.target.openPopup(),
+  }}>
         <MyPopup location="Rand"/>
       </Marker>
-      <Marker position={ebi} icon={diningIcon}>
+      <Marker position={ebi} icon={diningIcon} eventHandlers={{
+    mouseover: (event) => event.target.openPopup(),
+  }}>
         <MyPopup location="EBI" />
       </Marker>
-      <Marker position={rec} icon={gymIcon}>
+      <Marker position={rec} icon={gymIcon} eventHandlers={{
+    mouseover: (event) => event.target.openPopup(),
+  }}>
         <MyPopup location="The Rec"/>
       </Marker>
-      <Marker position={alumniGym} icon={gymIcon}>
+      <Marker position={alumniGym} icon={gymIcon} eventHandlers={{
+    mouseover: (event) => event.target.openPopup(),
+  }}>
         <MyPopup location="Alumni Gym"/>
       </Marker>
-      <Marker position={central} icon={libraryIcon}>
+      <Marker position={central} icon={libraryIcon} eventHandlers={{
+    mouseover: (event) => event.target.openPopup(),
+  }}>
         <MyPopup location="Central Library" />
       </Marker>
       </MarkerClusterGroup>
