@@ -16,7 +16,7 @@
   /* Style the header links */
   .header a {
     float: left;
-    color: #B49248;
+    color: white;
     text-align: left;
     padding: 10px;
     text-decoration: none;
@@ -34,7 +34,7 @@
   
   /* Change the background color on mouse-over */
   .header a:hover {
-    color: white;
+    color: #B49248;
   }
 
   
