@@ -1,8 +1,9 @@
 import { MapContainer, TileLayer, Marker } from 'react-leaflet';
-import { Icon } from "leaflet";
+import { Icon, Marker } from "leaflet";
 import MarkerClusterGroup from 'react-leaflet-cluster';
 import MyPopup from './popup';
 import Sidebar from './sidebar';
+import { useNavigate } from 'react-router-dom';
 
 function VandyMap(props) {
   const position = [36.14487659335152, -86.80265511885861]
@@ -29,6 +30,10 @@ function VandyMap(props) {
     iconSize: [38,38]
   })
 
+  Marker.on('click', function() {
+    window.location.href = 'localhost:3000';
+  });
+
   return (
     <div className="App">
       <header className="App-header">
@@ -51,7 +56,7 @@ function VandyMap(props) {
         <MyPopup location="Roth"/>
       </Marker>
       <Marker position={zeppos} icon = {diningIcon} eventHandlers={{
-    mouseover: (event) => event.target.openPopup(), 
+    mouseover: (event) => event.target.openPopup(),
   }}>
         <MyPopup location="Zeppos"/>
       </Marker>
