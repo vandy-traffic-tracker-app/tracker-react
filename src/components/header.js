@@ -1,8 +1,10 @@
 import * as React from "react";
+import './header.css'
   
 export default function Header() {
   return (
-    <span className="header">
-    VandyTracker</span>
+    <div className="header">
+        <a href="" className="logo">VandyTracker</a>
+    </div>
   );
 }
