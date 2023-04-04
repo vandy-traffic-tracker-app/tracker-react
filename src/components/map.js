@@ -2,6 +2,8 @@ import { MapContainer, TileLayer, Marker } from 'react-leaflet';
 import { Icon } from "leaflet";
 import MarkerClusterGroup from 'react-leaflet-cluster';
 import MyPopup from './popup';
+import mySidebar from './sidebar';
+
 
 function VandyMap(props) {
   const position = [36.14487659335152, -86.80265511885861]
@@ -43,6 +45,7 @@ function VandyMap(props) {
     attribution='<a href="http://jawg.io" title="Tiles Courtesy of Jawg Maps" target="_blank">&copy; <b>Jawg</b>Maps</a> &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
     url='https://{s}.tile.jawg.io/jawg-dark/{z}/{x}/{y}{r}.png?access-token=RY9Mmlvez3uny0hKkGGHLz5cPGRPZ4EvLnObDC1CNwInyal3imyBvlCErDE8otLH'
     />
+    <mySidebar/>
     <MarkerClusterGroup>
       <Marker position={roth} icon = {diningIcon}>
         <MyPopup location="Roth"/>
