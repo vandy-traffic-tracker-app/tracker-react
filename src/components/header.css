@@ -2,9 +2,9 @@
     .header {
     overflow: hidden;
     background-color: #333;
-    min-height: 3vh;
+    min-height: 8vh;
     color: black;
-    height: 3px;
+    height: 8px;
     padding: 20px 10px;
     display: flex;
     flex-direction: column;
