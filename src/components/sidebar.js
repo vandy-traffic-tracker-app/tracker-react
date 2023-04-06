@@ -1,15 +1,19 @@
 import { useMap } from "react-leaflet";
 import { Fragment } from "react";
-import { Icon } from "leaflet";
+import { Icon, L } from "leaflet";
 import { useV2Sidebar} from "react-leaflet-v2-sidebar";
 import './sidebar.css';
 
-function Sidebar(prop) {
+function Sidebar(props) {
     const map = useMap();
     // const homeIcon = new Icon({
     //     iconUrl: require("../img/home-icon.png"),
     //     iconSize: [38,38]
     //   })
+    const { markers } = props;
+
+    console.log(markers)
+
 
   const panels = [
     {
@@ -69,9 +73,10 @@ function Sidebar(prop) {
       position: "top",
     },
   ];
-  useV2Sidebar(map, panels);
+  var sidebar = useV2Sidebar(map, panels);
+  //var sidebar = L.control.sidebar('sidebar').addTo(map);
 
-  return <Fragment></Fragment>;
+  return sidebar;
 }
 
 export default Sidebar;
