@@ -1,17 +1,16 @@
-import { useMap } from "react-leaflet";
-import { Fragment } from "react";
-import { Icon, L } from "leaflet";
-import { useV2Sidebar} from "react-leaflet-v2-sidebar";
-import './sidebar.css';
+import 'leaflet-sidebar-v2/js/leaflet-sidebar.min.js';
+import './sidebar.css'
+import { useEffect } from 'react';
+import { useMap } from 'react-leaflet';
+import L from 'leaflet';
 
 function Sidebar(props) {
-    const map = useMap();
 
-    const { markers } = props;
+  const map = useMap();
+  const sidebar = L.control.sidebar({ container: 'sidebar' }).addTo(map);
+  console.log("This better not happen twice")
 
-    console.log(markers)
-
-    const panels = [
+  const panels = [
     {
       id: "Home",
       tab: '<i style="font-size: large" class="fa fa-home"></i>',
@@ -20,59 +19,84 @@ function Sidebar(props) {
       position: "top",
     },
     {
-      id: "Rothschild",
-      tab: 'Rothschild Dining',
+      id: "rothschild",
+      tab: 'Rothschild',
       pane: "Rothschild Data",
       title: "Rothschild",
       position: "top",
     },
     {
-      id: "Zeppos",
-      tab: 'Zeppos Dining',
+      id: "zeppos",
+      tab: 'Zeppos',
       pane: "Zeppos Data",
       title: "Zeppos",
       position: "top",
     },
     {
-      id: "Rand-Dining-Center",
+      id: "rand",
       tab: 'Rand Dining',
       pane: "Rand Data",
       title: "Rand",
       position: "top",
     },
     {
-      id: "EBI",
-      tab: 'EBI Dining',
+      id: "ebi",
+      tab: 'EBI',
       pane: "EBI Data",
       title: "EBI",
       position: "top",
     },
     {
-      id: "Rec-Center",
+        id: "commons",
+        tab: 'Commons',
+        pane: "Commons Data",
+        title: "Commons",
+        position: "top",
+    },
+    {
+      id: "rec",
       tab: 'Rec Center',
       pane: "Rec Center Data",
       title: "Rec Center",
       position: "top",
     },
     {
-      id: "Alumni-Rec",
+      id: "alumni",
       tab: 'Alumni Gym',
       pane: "Alumni Gym Data",
       title: "Alumni Gym",
       position: "top",
     },
     {
-      id: "Central-Library",
+      id: "central",
       tab: 'Central',
       pane: "Central Library Data",
       title: "Central Library",
       position: "top",
     },
   ];
-  var sidebar = useV2Sidebar(map, panels);
-  //var sidebar = L.control.sidebar('sidebar').addTo(map);
 
-  return sidebar;
-}
+  const { activeLocation, detailsClick } = props
+
+  function setPanels() {
+    sidebar.removePanel();
+    panels.forEach((panel) => {
+        sidebar.addPanel(panel);
+    });
+  }
+
+  useEffect(() => {
+    console.log("Going to add panels")
+    setPanels()
+    }, []);
+
+  useEffect(() => {
+      if (activeLocation != null) {
+        sidebar.open(activeLocation);
+      }
+  }, [detailsClick]);
+
+  return (<div></div>);
+};
 
 export default Sidebar;

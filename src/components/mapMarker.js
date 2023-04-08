@@ -1,38 +1,21 @@
-import { Marker, useMap } from "react-leaflet";
-import {L} from "leaflet"
-import Sidebar from "./sidebar";
-import { useEffect, useRef} from "react";
+
+import { Marker, useMap} from 'react-leaflet';
 import MyPopup from './popup';
+function MapMarker(props) {
+    const map = useMap();
+    const {location, name, position, icon, setActiveLocation, setDetailsClick} = props
 
-function MapMarker({ position, name, icon }) {
-//     var markerRef = useRef()
-//     const map = useMap;
+    return (
+    <Marker name = {name} 
+            position = {position} 
+            icon = {icon} 
+            eventHandlers={{
+                mouseover: (event) => event.target.openPopup(),
+                click: (event) => map.flyTo(position)}}> 
+                <MyPopup location={location} position={position} setActiveLocation={setActiveLocation} setDetailsClick={setDetailsClick}/>
+            </Marker>
+    )
 
-//   const openSidebar = (panelId) => {
-//     Sidebar.open(panelId);
-//   };
-
-//   const handleClick = (e) => {
-//     openSidebar(name);
-//   };
-
-//   useEffect(() => {
-//     const marker = markerRef.current;
-//     if (marker) {
-//       marker.addEventListener("click", handleClick);
-//     }
-//     return () => {
-//       if (marker) {
-//         marker.removeEventListener("click", handleClick);
-//       }
-//     };
-//   }, [markerRef]);
-
-  console.log(name)
-
-  return <Marker key = {name} position = {position} icon = {icon} eventHandlers={{
-    mouseover: (event) => event.target.openPopup()
-  }}> <MyPopup location={name}/> </Marker>;
 }
 
 export default MapMarker;
