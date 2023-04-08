@@ -1,11 +1,16 @@
+    .header {
+      font-family: 'Bodoni Moda', serif;
+    }
     /* Style the header with a grey background and some padding */
     .header {
     overflow: hidden;
-    background-color: #333;
-    min-height: 3vh;
+    background-color: #B49248;
+    min-height: 8vh;
     color: black;
-    height: 3px;
-    padding: 20px 10px;
+    height: 8px;
+    left:auto;
+    right: auto;
+    padding: 10px 10px;
     display: flex;
     flex-direction: column;
     align-items: left;
@@ -34,7 +39,7 @@
   
   /* Change the background color on mouse-over */
   .header a:hover {
-    color: #B49248;
+    color: black;
   }
 
   
