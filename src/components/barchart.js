@@ -18,7 +18,18 @@ const testData = [
 ];
 
 function BarChart() {
-    
+    <div style={{padding: "5rem 10 rem"}}>
+        <Bar data={{
+            labels: testData.map(data1 => data1.location), 
+            datasets: [
+                {
+                    label: "Occupancy",
+                    data: testData.map(data1 => data1.occupancy),
+                    backgroundColor: "rgba(255,99,132,,0.2",
+                }
+            ]
+        }} />
+    </div>
 }
 
 export default BarChart;

@@ -40,7 +40,7 @@ function MyPopup (props) {
     return (
         <Popup onMouseEnter={(event) => event.target.openPopup()}>
             <p className='Header'>{location.name}</p>
-            <p>This id was obtained from the backend: {data.location}</p>
+            <p>This id was obtained from the backend: {data.timeStamp}</p>
             <p className='Regular'>Est. Total Occupancy:</p>
             <p className='Regular'> {totalCapacity} people</p>
             <p className='Regular'>Current Percent Capacity:</p>
