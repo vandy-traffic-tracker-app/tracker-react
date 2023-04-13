@@ -3,7 +3,7 @@ import Sidebar from './sidebar';
 import { Icon } from "leaflet";
 import './map.js'
 import { useState } from 'react';
-import MapMarker from './MapMarker';
+import MapMarker from './mapMarker';
 
 function VandyMap({ locations }) {
   const [activeLocation, setActiveLocation] = useState(null);
