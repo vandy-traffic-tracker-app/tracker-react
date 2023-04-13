@@ -1,4 +1,6 @@
 import { Popup } from 'react-leaflet';
+import ApiTest from '../api/apiTest';
+
 import './popup.css';
 
 function MyPopup (prop) {
@@ -7,6 +9,8 @@ function MyPopup (prop) {
             <h1 className='Header'>{prop.location}</h1>
             <p1 className='Regular'>Est. Current Occupancy: 1000 people idk filler</p1> <br/>
             <p2 className='Regular'>Capacity: 12% idk filter</p2>
+            <ApiTest /> 
+            
         </Popup>
     )
 }
