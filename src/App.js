@@ -1,14 +1,15 @@
 import './App.css';
-import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
-import { Icon } from "leaflet";
-import MarkerClusterGroup from 'react-leaflet-cluster';
 import VandyMap from './components/map';
-
+import Header from './components/header';
+import locations from './components/locations';
 
 function App() {
   return (
-    <VandyMap />
-  )
+    <div className="App">
+      <Header className="header"/>
+      <VandyMap locations={locations}/>
+      </div>
+  );
 }
 
 export default App;
