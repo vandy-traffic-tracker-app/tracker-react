@@ -3,6 +3,11 @@ import './sidebar.css'
 import { useEffect } from 'react';
 import { useMap } from 'react-leaflet';
 import L from 'leaflet';
+import ReactDOMServer from 'react-dom/server';
+import BarChart from './barchart'
+
+const { renderToString } = ReactDOMServer;
+
 
 function Sidebar(props) {
 
@@ -21,56 +26,56 @@ function Sidebar(props) {
     {
       id: "rothschild",
       tab: 'Rothschild',
-      pane: "Rothschild Data",
+      pane: renderToString(<BarChart/>),
       title: "Rothschild",
       position: "top",
     },
     {
       id: "zeppos",
       tab: 'Zeppos',
-      pane: "Zeppos Data",
+      pane: renderToString(<BarChart/>),
       title: "Zeppos",
       position: "top",
     },
     {
       id: "rand",
       tab: 'Rand Dining',
-      pane: "Rand Data",
+      pane: renderToString(<BarChart/>),
       title: "Rand",
       position: "top",
     },
     {
       id: "ebi",
       tab: 'EBI',
-      pane: "EBI Data",
+      pane: renderToString(<BarChart/>),
       title: "EBI",
       position: "top",
     },
     {
         id: "commons",
         tab: 'Commons',
-        pane: "Commons Data",
+        pane: renderToString(<BarChart/>),
         title: "Commons",
         position: "top",
     },
     {
       id: "rec",
       tab: 'Rec Center',
-      pane: "Rec Center Data",
+      pane: renderToString(<BarChart/>),
       title: "Rec Center",
       position: "top",
     },
     {
       id: "alumni",
       tab: 'Alumni Gym',
-      pane: "Alumni Gym Data",
+      pane: renderToString(<BarChart/>),
       title: "Alumni Gym",
       position: "top",
     },
     {
       id: "central",
       tab: 'Central',
-      pane: "Central Library Data",
+      pane: renderToString(<BarChart/>),
       title: "Central Library",
       position: "top",
     },
