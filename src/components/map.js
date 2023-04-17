@@ -1,5 +1,5 @@
 import { MapContainer, TileLayer } from 'react-leaflet';
-import Sidebar from './sidebar';
+import Sidebar from './sidebar/leafletsidebar.js';
 import { Icon } from "leaflet";
 import './map.js'
 import { useState } from 'react';
@@ -45,7 +45,8 @@ function VandyMap({ locations }) {
     attribution='<a href="http://jawg.io" title="Tiles Courtesy of Jawg Maps" target="_blank">&copy; <b>Jawg</b>Maps</a> &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
     url='https://{s}.tile.jawg.io/jawg-dark/{z}/{x}/{y}{r}.png?access-token=RY9Mmlvez3uny0hKkGGHLz5cPGRPZ4EvLnObDC1CNwInyal3imyBvlCErDE8otLH'
     />
-    <Sidebar id = "sidebar" activeLocation={activeLocation} detailsClick={detailsClick}/>
+    {/* <MiniDrawer/> */}
+    {/* <Sidebar id = "sidebar" activeLocation={activeLocation} detailsClick={detailsClick}/> */}
      {
         locations.map((location, index) => (
             <MapMarker key={index}

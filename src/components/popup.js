@@ -1,6 +1,7 @@
 import { Popup, useMap } from 'react-leaflet';
 import { useState, useEffect } from 'react';
 import './popup.css';
+import BarChart from './barchart';
 
 function MyPopup (props) {
     var totalCapacity = 300;
@@ -46,6 +47,7 @@ function MyPopup (props) {
             <p className='Regular'>Current Percent Capacity:</p>
             <p className='Figure' style={{color: capacity < 24 ? "Green" : "Red"}}> {capacity}%</p>
             <p className='Regular'>We love {location.name}!!!!</p>
+            <BarChart/>
             <button onClick={handleClick}> Details </button>
         </Popup>
     )
