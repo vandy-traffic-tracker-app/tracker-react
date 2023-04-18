@@ -56,4 +56,6 @@ function BarChart(props) {
   );
 }
 
+
+
 export default BarChart;
