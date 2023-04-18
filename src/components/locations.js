@@ -1,19 +1,19 @@
 const locations = [
     {
       name: "Rothschild",
-      id: "rothschild",
+      id: "Roth",
       position: [36.14760961442212, -86.80677877652803],
       type: "dining"
     },
     {
       name: "Zeppos",
-      id: "zeppos",
+      id: "zep",
       position: [36.146688025712265, -86.8078919312855],
       type: "dining"
     },
     {
       name: "Rand",
-      id: "rand",
+      id: "Rand",
       position: [36.146217154062526, -86.80308581779046],
       type: "dining"
     },

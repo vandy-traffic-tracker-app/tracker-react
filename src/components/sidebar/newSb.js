@@ -9,8 +9,21 @@ import {
 import "./sidebar.css";
 import BarChart from "../barchart";
 import locations from '../locations';
+import { Bar } from "react-chartjs-2";
 
 const Sidebar = (props) => {
+
+  const FormPanel = ({activeTab}) => {
+    console.log("form panel " + activeTab + " loaded")
+    return <div className="sidebar__panel-content">
+        {/* This is the {activeTab} panel */}
+        <p>Today's Occupancy: </p>
+        <BarChart barTime={todaytime} barOcc ={todayocc} />
+        <br></br>
+        <p>Week's Occupancy: </p>
+        <BarChart barTime={todaytime} barOcc={todayocc} />
+        </div>;
+  };
 
   const {activeLocation, detailsClick} = props
   const [activeTab, setActiveTab] = useState(null);
@@ -20,6 +33,7 @@ const Sidebar = (props) => {
     console.log("tab click")
     setActiveTab(tab === activeTab ? null : tab);
     setIsPanelOpen(true);
+    updateChart();
   };
 
   useEffect(() => {
@@ -34,6 +48,38 @@ const Sidebar = (props) => {
         setIsPanelOpen(true);
     }
   }, [detailsClick]);
+
+
+  //This is to generate barchart
+  const [todaytime, setTodaytime] = useState({});
+  const [todayocc, setTodayocc] = useState({});
+
+  function updateChart() {
+    async function fetchData() {
+      const url = '/TestgetAverageOccupancyByWeekday/Roth/Mon';
+      const response = await fetch(url);
+      // wait until the request has complete
+      const datapoints = await response.json();
+      console.log(datapoints);
+      return datapoints;
+    };
+
+    fetchData().then(datapoints => {
+      const time = datapoints.map(
+        function(index) {
+          return index.time;
+        }
+      )
+      const occupancy = datapoints.map(
+        function(index) {
+          return index.occupancy;
+        }
+      )
+
+      setTodaytime(time);
+      setTodayocc(occupancy);
+    })
+  }
 
   return (
     <div className="sidebar" style={{ width: activeTab ? "40%" : "200px" }}>
@@ -71,13 +117,13 @@ const Sidebar = (props) => {
   );
 };
 
-const FormPanel = ({activeTab}) => {
-    console.log("form panel " + activeTab + " loaded")
-    return <div className="sidebar__panel-content">
-        This is the {activeTab} panel
-        <BarChart/>
-        </div>;
-  };
+// const FormPanel = ({activeTab}) => {
+//     console.log("form panel " + activeTab + " loaded")
+//     return <div className="sidebar__panel-content">
+//         This is the {activeTab} panel
+//         <BarChart barTime={todaytime} barOcc ={todayocc} />
+//         </div>;
+//   };
 
 
 export default Sidebar;
