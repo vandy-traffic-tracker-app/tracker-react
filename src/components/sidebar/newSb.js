@@ -29,7 +29,7 @@ const Sidebar = (props) => {
 
   useEffect(() => {
     if (activeLocation != null) {
-        console.loga("details click")
+        console.log("details click")
         setActiveTab(activeLocation === activeTab ? null : activeLocation);
         setIsPanelOpen(true);
     }
