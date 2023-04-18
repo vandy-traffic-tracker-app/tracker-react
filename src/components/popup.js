@@ -23,20 +23,20 @@ function MyPopup (props) {
         timeStamp: "",
     });
 
-    useEffect(() => {
-        fetch("/test").then(
-            res => res.json()
-        ).then(
-            data => {
-                setData({
-                    student: data.studentID,
-                    location: data.locationID,
-                    scanner: data.scannerID,
-                    timeStamp: data.time_stamp
-                });
-            }
-        );
-    }, []);
+    // useEffect(() => {
+    //     fetch("/test").then(
+    //         res => res.json()
+    //     ).then(
+    //         data => {
+    //             setData({
+    //                 student: data.studentID,
+    //                 location: data.locationID,
+    //                 scanner: data.scannerID,
+    //                 timeStamp: data.time_stamp
+    //             });
+    //         }
+    //     );
+    // }, []);
 
     return (
         <Popup onMouseEnter={(event) => event.target.openPopup()}>

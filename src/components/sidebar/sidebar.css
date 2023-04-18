@@ -1,3 +1,73 @@
+.sidebar {
+  margin-top: 10px;
+  position: absolute;
+  top: 50px;
+  left: 0;
+  bottom: 0;
+  width: 10%; /* initial width when no tab is active */
+  min-width: 5%; /* minimum width of sidebar */
+  background-color: #333;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  transition: width 0.5s ease-in-out; /* add transition for smooth animation */
+  z-index: 2;
+}
+
+.sidebar--expanded {
+  width: 100%; /* expanded width when a tab is active */
+}
+
+.sidebar__tabs {
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 16px;
+}
+
+.sidebar__tab {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 4px;
+  color: white;
+  cursor: pointer;
+  background-color: transparent;
+}
+
+.sidebar__tab:hover {
+  background-color: #ddd;
+}
+
+.sidebar__tab--active {
+  color: #000;
+  background-color: #ddd;
+}
+
+.sidebar__tab-icon {
+  font-size: 20px;
+}
+
+.sidebar__panel {
+  flex: 1; /* fill remaining height */
+  display: flex;
+  flex-direction: row;
+  padding: 16px;
+  /* overflow-y: auto; */
+}
+
+.sidebar__panel-content {
+  font-size: 20px;
+  line-height: 1.5;
+  color: white;
+}
+
+/* 
 .leaflet-sidebar {
     position: absolute;
     top: 0;
@@ -197,4 +267,4 @@
   
   .leaflet-sidebar-right.collapsed ~ .leaflet-control-container .leaflet-right {
     right: 50px; }
-  
+   */
