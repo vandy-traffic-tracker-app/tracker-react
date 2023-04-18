@@ -2,7 +2,6 @@ import { Popup, useMap } from 'react-leaflet';
 import { useState, useEffect } from 'react';
 import './popup.css';
 import BarChart from './barchart';
-import BarChart2 from './barchartv2';
 
 function MyPopup (props) {
     var totalCapacity = 300;
