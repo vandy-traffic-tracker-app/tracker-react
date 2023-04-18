@@ -10,8 +10,8 @@ function App() {
     <div >
       {/* <Header className="header"/> */}
       {/* <SideBarV2/> */}
-      <MiniDrawer/>
-      {/* <VandyMap locations={locations}/> */}
+      {/* <MiniDrawer/> */}
+      <VandyMap locations={locations}/>
       </div>
   );
 }
