@@ -1,13 +1,12 @@
 import { MapContainer, TileLayer } from 'react-leaflet';
-import Sidebar from './sidebar/leafletsidebar.js';
 import { Icon } from "leaflet";
 import './map.js'
-import { useState } from 'react';
 import MapMarker from './mapMarker';
+import locations from './locations';
 
-function VandyMap({ locations }) {
-  const [activeLocation, setActiveLocation] = useState(null);
-  const [detailsClick, setDetailsClick] = useState(null);
+function VandyMap( props ) {
+
+  const { activeLocation, setActiveLocation, detailsClick, setDetailsClick} = props
 
   const position = [36.14487659335152, -86.80265511885861]
     const diningIcon = new Icon({
@@ -35,18 +34,10 @@ function VandyMap({ locations }) {
     <div className="App">
       <header className="App-header">
       <MapContainer center={position} zoom={16} scrollWheelZoom={true}>
-    {/* 
-    Original map object:
-    <TileLayer
-      attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-      url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-    /> */}
     <TileLayer
     attribution='<a href="http://jawg.io" title="Tiles Courtesy of Jawg Maps" target="_blank">&copy; <b>Jawg</b>Maps</a> &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
     url='https://{s}.tile.jawg.io/jawg-dark/{z}/{x}/{y}{r}.png?access-token=RY9Mmlvez3uny0hKkGGHLz5cPGRPZ4EvLnObDC1CNwInyal3imyBvlCErDE8otLH'
     />
-    {/* <MiniDrawer/> */}
-    {/* <Sidebar id = "sidebar" activeLocation={activeLocation} detailsClick={detailsClick}/> */}
      {
         locations.map((location, index) => (
             <MapMarker key={index}

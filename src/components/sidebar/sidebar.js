@@ -95,12 +95,6 @@ function Sidebar(props) {
     setPanels()
     }, []);
 
-  useEffect(() => {
-      if (activeLocation != null) {
-        sidebar.open(activeLocation);
-      }
-  }, [detailsClick]);
-
   return (<div></div>);
 };
 

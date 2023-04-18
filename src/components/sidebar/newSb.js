@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faHome,
@@ -8,13 +8,32 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import "./sidebar.css";
 import BarChart from "../barchart";
+import locations from '../locations';
 
-const Sidebar = () => {
+const Sidebar = (props) => {
+
+  const {activeLocation, detailsClick} = props
   const [activeTab, setActiveTab] = useState(null);
+  const [isPanelOpen, setIsPanelOpen] = useState(false);
 
   const handleTabClick = (tab) => {
+    console.log("tab click")
     setActiveTab(tab === activeTab ? null : tab);
+    setIsPanelOpen(true);
   };
+
+  useEffect(() => {
+      console.log("every time page loads")
+  })
+
+
+  useEffect(() => {
+    if (activeLocation != null) {
+        console.loga("details click")
+        setActiveTab(activeLocation === activeTab ? null : activeLocation);
+        setIsPanelOpen(true);
+    }
+  }, [detailsClick]);
 
   return (
     <div className="sidebar" style={{ width: activeTab ? "40%" : "200px" }}>
@@ -28,71 +47,37 @@ const Sidebar = () => {
           <FontAwesomeIcon icon={faHome} className="sidebar__tab-icon" />
           Home
         </button>
-        <button
-          className={`sidebar__tab ${
-            activeTab === "roth" ? "sidebar__tab--active" : ""
-          }`}
-          onClick={() => handleTabClick("roth")}
-        >
-          <FontAwesomeIcon icon={faBuilding} className="sidebar__tab-icon" />
-          Roth
-        </button>
-        <button
-          className={`sidebar__tab ${
-            activeTab === "commons" ? "sidebar__tab--active" : ""
-          }`}
-          onClick={() => handleTabClick("commons")}
-        >
-          <FontAwesomeIcon
-            icon={faUniversity}
-            className="sidebar__tab-icon"
-          />
-          Commons
-        </button>
-        <button
-          className={`sidebar__tab ${
-            activeTab === "other" ? "sidebar__tab--active" : ""
-          }`}
-          onClick={() => handleTabClick("other")}
-        >
-          <FontAwesomeIcon icon={faLandmark} className="sidebar__tab-icon" />
-          Other
-        </button>
+        {
+            locations.map((location, index) => (
+                <button key={index}
+                className={`sidebar__tab ${
+                    activeTab === location.name} ? "sidebar__tab--active" : ""
+                }` } 
+                onClick={() => handleTabClick(location.name)}
+                >
+                <FontAwesomeIcon icon={faBuilding} className="sidebar__tab-icon" />
+                {location.name}
+                </button>
+            ))
+        }
       </div>
       <div
         className="sidebar__panel"
         style={{ width: activeTab ? "60%" : "0%" }}
       >
-        {activeTab === null}
-        {activeTab === "home" && <HomePanel />}
-        {activeTab === "roth" && <RothPanel />}
-        {activeTab === "commons" && <CommonsPanel />}
-        {activeTab === "other" && <OtherPanel />}
+        {isPanelOpen && activeTab != null && <FormPanel activeTab={activeTab} />}
       </div>
     </div>
   );
 };
 
-const HomePanel = () => {
-  return <div className="sidebar__panel-content">
-      
-      This is the Home panel</div>;
-};
+const FormPanel = ({activeTab}) => {
+    console.log("form panel " + activeTab + " loaded")
+    return <div className="sidebar__panel-content">
+        This is the {activeTab} panel
+        <BarChart/>
+        </div>;
+  };
 
-const RothPanel = () => {
-  return <div className="sidebar__panel-content">This is the Roth panel
-  <BarChart/>
-  </div>;
-};
-
-const CommonsPanel = () => {
-  return (
-    <div className="sidebar__panel-content">This is the Commons panel</div>
-  );
-};
-
-const OtherPanel = () => {
-  return <div className="sidebar__panel-content">This is the Other panel</div>;
-};
 
 export default Sidebar;

@@ -54,18 +54,22 @@
 }
 
 .sidebar__panel {
-  flex: 1; /* fill remaining height */
-  display: flex;
-  flex-direction: row;
   padding: 16px;
-  /* overflow-y: auto; */
 }
 
 .sidebar__panel-content {
+  white-space: nowrap;
   font-size: 20px;
   line-height: 1.5;
   color: white;
+  position: absolute;
+  top: 25px;
+  bottom: 0;
+  left: 210px;
+  right: 0;
 }
+
+
 
 /* 
 .leaflet-sidebar {

@@ -7,6 +7,7 @@ import {
     Tooltip,
     Legend
 } from "chart.js";
+import '../App.css'
 
 ChartJS.register(CategoryScale, LinearScale, BarElement, Tooltip, Legend);
 
@@ -18,8 +19,9 @@ const testData = [
 ];
 
 function BarChart() {
+    console.log("bar chart")
     return (
-        <div style={{padding: "5rem 10 rem"}}>
+        // <div style={{padding: "5rem 10 rem"}}>
         <Bar data={{
             labels: testData.map(data1 => data1.location), 
             datasets: [
@@ -30,7 +32,7 @@ function BarChart() {
                 }
             ]
         }} />
-    </div>
+    // </div>
     );
 }
 
