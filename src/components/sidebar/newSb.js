@@ -35,6 +35,14 @@ const Sidebar = (props) => {
     }
   }, [detailsClick]);
 
+  const FormPanel = ({activeTab}) => {
+    console.log("form panel " + activeTab + " loaded")
+    return <div className="sidebar__panel-content">
+        This is the {activeTab} panel
+        <BarChart location={activeTab} />
+        </div>;
+  };
+
   return (
     <div className="sidebar" style={{ width: activeTab ? "40%" : "200px" }}>
       <div className="sidebar__tabs">
@@ -53,7 +61,7 @@ const Sidebar = (props) => {
                 className={`sidebar__tab ${
                     activeTab === location.name} ? "sidebar__tab--active" : ""
                 }` } 
-                onClick={() => handleTabClick(location.name)}
+                onClick={() => handleTabClick(location.id)}
                 >
                 <FontAwesomeIcon icon={faBuilding} className="sidebar__tab-icon" />
                 {location.name}
@@ -65,19 +73,12 @@ const Sidebar = (props) => {
         className="sidebar__panel"
         style={{ width: activeTab ? "60%" : "0%" }}
       >
-        {isPanelOpen && activeTab != null && <FormPanel activeTab={activeTab} />}
+        {isPanelOpen && activeTab !== null && activeTab === "Home"}
+        {isPanelOpen && activeTab !== null && activeTab !== "Home" && <FormPanel activeTab={activeTab} />}
       </div>
     </div>
   );
 };
-
-const FormPanel = ({activeTab}) => {
-    console.log("form panel " + activeTab + " loaded")
-    return <div className="sidebar__panel-content">
-        This is the {activeTab} panel
-        <BarChart/>
-        </div>;
-  };
 
 
 export default Sidebar;

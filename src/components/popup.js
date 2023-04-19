@@ -25,7 +25,7 @@ function MyPopup (props) {
     });
 
     const fetchCurrOcc = () => {
-        fetch(`./getCurrentOccupancy/${location.id}`) //gets the course numbers from the database
+        fetch(`/api/getCurrentOccupancy/${location.id}`) 
         .then(response => {
             return response.json()
           })
@@ -38,7 +38,7 @@ function MyPopup (props) {
         fetchCurrOcc()
       }, [])
       
-    var percentOcc = currOcc / capacity
+    var percentOcc = Math.floor((currOcc / capacity) * 100);
 
     return (
         <Popup onMouseEnter={(event) => event.target.openPopup()}>
@@ -46,7 +46,7 @@ function MyPopup (props) {
             <p className='Regular'>Estimated Current Occupancy:</p>
             <p className='Regular'> {JSON.stringify(currOcc)} people</p>
             <p className='Regular'>Current Percent Capacity:</p>
-            <p className='Figure' style={{color: percentOcc < 0.25 ? "Green" : "Red"}}> {percentOcc}%</p>
+            <p className='Figure' style={{color: percentOcc < 25 ? "Green" : "Red"}}> {percentOcc}%</p>
             <BarChart/>
             <button onClick={handleClick}> Details </button>
         </Popup>
