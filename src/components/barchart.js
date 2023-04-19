@@ -35,9 +35,21 @@ function BarChart(props) {
       })
     }
 
+    const fetchTotalOcc = () => {
+      fetch(`/api/getAllTotalOccupancies/${location}`) 
+      .then(response => {
+          return response.json()
+        })
+      .then(data => {
+          setData(data)
+          console.log(JSON.stringify(data))
+      })
+    }
+
+
     useEffect(() => {
       if(location != undefined && location != "home") {
-        fetchAvgOcc()
+        fetchTotalOcc()
       }
     }, [])
 
@@ -45,13 +57,14 @@ function BarChart(props) {
     console.log("bar chart")
     return (
         <Bar data={{
-            labels: data.map(data1 => data1.time), 
+            // labels: data.map(data1 => data1.time), 
+            labels: data.map(data1 => data1.weekday), 
             datasets: [
                 {
                     label: "Occupancy",
+                    // data: data.map(data1 => data1.occupancy),
                     data: data.map(data1 => data1.occupancy),
                     backgroundColor: "rgba(255,99,132,,0.2",
-                    scale: 30
                 }
             ],
             options: {
