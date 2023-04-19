@@ -8,7 +8,7 @@ import {
     Tooltip,
     Legend
 } from "chart.js";
-import '../App.css'
+import '../../App.css'
 
 ChartJS.register(CategoryScale, LinearScale, BarElement, Tooltip, Legend);
 
@@ -26,12 +26,13 @@ function BarChart(props) {
     console.log("loc name: " + location)
 
     const fetchAvgOcc = () => {
-      fetch(`/api/getAverageOccupancyByWeekday/${location}/Mon`) 
+      fetch(`/api/getOccTodayAll/${location}`) 
       .then(response => {
           return response.json()
         })
       .then(data => {
           setData(data)
+          console.log(data)
       })
     }
 

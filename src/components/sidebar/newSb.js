@@ -7,7 +7,7 @@ import {
   faLandmark,
 } from "@fortawesome/free-solid-svg-icons";
 import "./sidebar.css";
-import BarChart from "../barchart";
+import BarChart from "../barcharts/barchart";
 import locations from '../locations';
 
 const Sidebar = (props) => {
