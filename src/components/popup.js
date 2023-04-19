@@ -2,6 +2,7 @@ import { Popup, useMap } from 'react-leaflet';
 import { useState, useEffect } from 'react';
 import './popup.css';
 import BarChart from './barchart';
+import BarChartPopUp from './barcharts/popupbar';
 
 function MyPopup (props) {
     const map = useMap();
@@ -47,7 +48,7 @@ function MyPopup (props) {
             <p className='Regular'> {JSON.stringify(currOcc)} people</p>
             <p className='Regular'>Current Percent Capacity:</p>
             <p className='Figure' style={{color: percentOcc < 25 ? "Green" : "Red"}}> {percentOcc}%</p>
-            <BarChart/>
+            <BarChartPopUp location={location.name} curOcc={currOcc} />
             <button onClick={handleClick}> Details </button>
         </Popup>
     )

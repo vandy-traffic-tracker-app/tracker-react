@@ -6,7 +6,6 @@ import locations from './components/locations';
 import MiniDrawer from './components/sidebar/sidebarv1';
 import SideBarV2 from './components/sidebar/sidebarv2';
 import Sidebar from './components/sidebar/newSb'
-import BarChart from './components/barchart';
 
 function App() {
   const [activeLocation, setActiveLocation] = useState(null);
