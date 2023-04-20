@@ -106,6 +106,18 @@
   width: 80px;
 }
 
+.sidebar__panel-content1 {
+  overflow-wrap: normal;
+  font-size: 12px;
+  line-height: 1.5;
+  color: white;
+  position: absolute;
+  top: 25px;
+  bottom: 0;
+  left: 210px;
+  right: 30px;
+}
+
 
 
 /* 
