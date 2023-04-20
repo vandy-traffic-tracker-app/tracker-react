@@ -7,7 +7,9 @@
 .Regular {
     font-family:Arial, Helvetica, sans-serif;
     font-size: 15px;
+    width:100%;
 }
+
 
 .Figure {
     font-family:Tahoma, sans-serif;

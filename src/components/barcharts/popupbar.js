@@ -50,7 +50,13 @@ function BarChartPopUp(props) {
                 {
                     label: "Occupancy",
                     data: data.map(data1 => data1.occupancy),
-                    backgroundColor: "rgba(255,99,132,,0.2",
+                    backgroundColor: [
+                        'rgba(180, 146, 72, 100)',
+                        'rgba(255,99,132,,0.2',
+                        'rgba(255,99,132,,0.2',
+                        'rgba(255,99,132,,0.2',
+                        'rgba(255,99,132,,0.2',
+                        'rgba(255,99,132,,0.2',],
                     scale: 30
                 }
             ],

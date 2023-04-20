@@ -48,8 +48,10 @@ function MyPopup (props) {
             <p className='Regular'> {JSON.stringify(currOcc)} people</p>
             <p className='Regular'>Current Percent Capacity:</p>
             <p className='Figure' style={{color: percentOcc < 25 ? "Green" : "Red"}}> {percentOcc}%</p>
+            <p className='Regular' style={{"font-size":"20px", "text-align": "center", "marginBottom": "0px"}}>Location Occupancy</p>
             <BarChartPopUp location={location.id} curOcc={currOcc} />
-            <button onClick={handleClick}> Details </button>
+            <p className='Regular' style={{"font-size":"12px", "marginTop":"2px"}}>The above graph shows current data, plus predicted occupancy for the next 5 hours or until close.</p>
+            <button onClick={handleClick}>Details </button>
         </Popup>
     )
 }

@@ -51,7 +51,7 @@ function BarChart(props) {
                 {
                     label: "Occupancy",
                     data: data.map(data1 => data1.occupancy),
-                    backgroundColor: "rgba(255,99,132,,0.2",
+                    backgroundColor: "rgba(161,164,141,100)",
                     scale: 30
                 }
             ],
