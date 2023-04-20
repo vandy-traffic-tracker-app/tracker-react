@@ -11,6 +11,17 @@ import BarChart from "../barcharts/barchart";
 import locations from '../locations';
 import BarChartAvg from "../barcharts/avgbarchart";
 
+const fullNamesByID = {
+  "Roth":"Rothschild Dining", 
+  "Zeppos":"Zeppos Dining", 
+  "Rand":"Rand Dining", 
+  "EBI":"EBI Dining", 
+  "Commons":"Commons Dining", 
+  "Rec":"Recreation Center", 
+  "Alumni":"Alumni Gym",
+  "Central":"Central Library"
+}
+
 const Sidebar = (props) => {
 
   const {activeLocation, detailsClick} = props
@@ -38,12 +49,17 @@ const Sidebar = (props) => {
   }, [detailsClick]);
 
   const FormPanel = ({activeTab}) => {
-    const id = activeTab
-    console.log("form panel " + {activeTab} + " loaded")
+    const fullName = fullNamesByID[activeTab]
     return <div className="sidebar__panel-content">
-        <p1> {activeTab} </p1>
+        <h1 className="panel-header">{fullName}</h1>
+        <p1>Today's Real-Time Occupancy</p1>
         <BarChart location={activeTab} />
         <br />
+        <p style = {{"width" : "100%", "left":"50%"}}>Average Occupancy by Weekday</p>
+        <BarChartAvg location={activeTab} date={date} />
+        <br/>
+        <p1 className="sidebar__panel-content2">Select a weekday to display the average occupancy in this building throughout the day: </p1>
+        <br/><br/>
         <div>
           <select className="selectButton" value={date} onChange={e =>setDate(e.target.value)}>
             <option value="Mon">Mon</option>
@@ -55,14 +71,23 @@ const Sidebar = (props) => {
             <option value="Sun">Sun</option>
           </select>
         </div>
-        <BarChartAvg location={activeTab} date={date} />
+
+        <br/>
         </div>;
+
+        
   };
 
   const HomePanel = () => {
     return <div className="sidebar__panel-content1">
-      <p1> Everyone at Vanderbilt University has their favorite spots on campus. They might love studying in Central Library, or love grabbing a sandwich at Rand between classes, or look forward to lifting weights at the Rec Center. Unfortunately, with over 13,537 students and over 4,500 staff members, these campus residents might not always be able to access these buildings due to overcrowding and long lines. To solve this issue, they might try to avoid common “rush hours”, but these are often variable per weekday and different for each location. 
+      <h1 className="panel-header">About Us</h1>
+      <p1>Everyone at Vanderbilt University has their favorite spots on campus. They might love studying in Central Library, or love grabbing a sandwich at Rand between classes, or look forward to lifting weights at the Rec Center. Unfortunately, with over 13,537 students and over 4,500 staff members, these campus residents might not always be able to access these buildings due to overcrowding and long lines. To solve this issue, they might try to avoid common “rush hours”, but these are often variable per weekday and different for each location. 
 </p1>
+    <br/> <br/>
+    <p1>Welcome to VandyTracker, the cloud-based solution developed by Mi Nguyen, Blake Shin, and Daniel Martinez that aids crowd control in campus buildings. Currently deployed as a proof of concept, VandyTracker analyzes Vanderbilt swipe data to show you the estimated occupancy for each location.
+</p1>
+    <br/> <br/>
+<p1> The goal? <br/> <br/>To give you a chance to plan your day so that you're not stuck waiting in lines and in crowded spaces! </p1>
         </div>;
   };
 
