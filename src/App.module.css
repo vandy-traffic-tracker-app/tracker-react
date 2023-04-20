@@ -1,0 +1,38 @@
+.app {
+    position: relative;
+    height: 100vh;
+    width: 100vw;
+  }
+  
+  .header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 64px;
+  }
+  
+  .content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+  }
+  
+  .map {
+    flex: 1;
+    z-index: 1;
+    left: 0;
+  }
+  
+  .sidebar {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 300px;
+    z-index: 2;
+  }
+  
